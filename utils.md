@@ -152,25 +152,27 @@ curl -X POST "http://127.0.0.1:8000/items/" -H"accept:application/json" -H"Conte
 
 
 # git
-## 已有仓库下首次推送main
-一：git clone 已经创建的.git
-二：cd到当前目录
-三：git add. 跟踪所有文件
+## 创建仓库后
+一：cd到当前目录
+二：初始化 git init
+三：git status 查看当前文件 git add . 跟踪所有文件
 四：git commit -m "创建一个包含这些更改的新提交"
-五：git push origin main 推送到main分支，如果为第一次
+五：git remote add origin 仓库的链接.git
+六：git remote -v 验证远程仓库
+七：git push origin main 推送到远程main分支，如果为第一次
 git push -u origin main 设置为上游分支
 
-查看未跟踪的文件
-git status
+查看本地分支
+git branch
 
-添加所有未跟踪文件
+查看远程分支
+git branch -r
+
+切换到其他分支
+git checkout 分支name 
+
+后续更新
+git status
 git add .
-
-查看暂存区状态，确保文件已被暂存
-git status
-
-提交更改到本地仓库
-git commit -m "xxxx"
-
-推送更改到远程仓库的 main 分支
+git commit -m "Update code with new features and bug fixes"
 git push origin main
