@@ -160,3 +160,17 @@ curl -X POST "http://127.0.0.1:8000/items/" -H"accept:application/json" -H"Conte
 五：git push origin main 推送到main分支，如果为第一次
 git push -u origin main 设置为上游分支
 
+查看未跟踪的文件
+git status
+
+添加所有未跟踪文件
+git add .
+
+查看暂存区状态，确保文件已被暂存
+git status
+
+提交更改到本地仓库
+git commit -m "xxxx"
+
+推送更改到远程仓库的 main 分支
+git push origin main
