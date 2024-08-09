@@ -176,3 +176,25 @@ git status
 git add .
 git commit -m "Update code with new features and bug fixes"
 git push origin main
+
+# docker
+## 从镜像创建容器
+docker run -it --name firsttry registry.cn-shanghai.aliyuncs.com/qwen_llm/14bchatint4:vllmandrag /bin/bash
+## 停止容器
+docker stop xxx 
+## 查看正在运行的容器
+docker ps 
+## 启动容器
+docker start xxx
+## vscode浏览和编辑容器
+vscode通过ctrlshiftp打开Remote-Containers: Attach to Running Container
+## 创挂载主机文件的容器
+docker run -it --name secdtry -v D:\docker-vm-source\save_volume:/save_volume registry.cn-shanghai.aliyuncs.com/qwen_llm/14bchatint4:vllmandrag
+
+# vim编辑
+## 打开编辑
+vim 文件名
+## 进入插入模式
+按下 i、a、o
+hjkl分别表示左下上右，x删除
+修改完后按esc退出编辑，然后输入:wq按enter保存并退出
