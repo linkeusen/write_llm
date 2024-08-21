@@ -178,18 +178,54 @@ git commit -m "Update code with new features and bug fixes"
 git push origin main
 
 # docker
+## 列出本地主机镜像
+docker images
+## 删除镜像
+docker rmi xxx
 ## 从镜像创建容器
 docker run -it --name firsttry registry.cn-shanghai.aliyuncs.com/qwen_llm/14bchatint4:vllmandrag /bin/bash
 ## 停止容器
 docker stop xxx 
 ## 查看正在运行的容器
-docker ps 
+docker ps -a(查看所有容器)
 ## 启动容器
 docker start xxx
 ## vscode浏览和编辑容器
 vscode通过ctrlshiftp打开Remote-Containers: Attach to Running Container
-## 创挂载主机文件的容器
+## 创挂载主机文件的容器，-i交互-t终端-d后台-p指定端口-P随机映射
 docker run -it --name secdtry -v D:\docker-vm-source\save_volume:/save_volume registry.cn-shanghai.aliyuncs.com/qwen_llm/14bchatint4:vllmandrag
+## 停止容器
+docker stop (docker id)
+## 重启容器
+docker restart (docker id)
+## 关闭容器退出
+exit
+## 已经运行的容器中启动一个 shell 终端
+docker attach (docker id) ##exit后容器停止
+docker exec -it (docker id) /bin/bash ##exit后容器不停止 
+## 删除容器 -f强制删除
+docker rm -f (docker id)
+## 查看容器内部的输出
+docker logs -f (docker id)
+## 查看容器内部的进程
+docker top xxx
+## 创建数据卷
+docker volume create xxx
+## 检查数据卷
+docker volume inspect xxx
+docker volume ls
+## 删除数据卷
+docker volume rm xxx
+## 映射数据卷
+docker run -v 路径：容器内部路径 镜像id
+eg1:
+docker volume create v01
+docker run -d -p 8080:8080 -v v01:/user/local/ --name tom dashboard
+docker volume inspect v01
+cp 要复制的文件 -r 卷路径 
+eg2:
+docker run -d -p 8080:8080 -v 本地路径：容器内部路径 --name xxx 镜像id
+
 
 # vim编辑
 ## 打开编辑
